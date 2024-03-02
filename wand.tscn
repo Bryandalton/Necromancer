@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://0emwua3vfrko"]
+
+[ext_resource type="Script" path="res://wand.gd" id="1_gma8s"]
+[ext_resource type="Texture2D" uid="uid://c0f60k1sorhwg" path="res://assets/magicbolt.png" id="2_idkaw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_euy3w"]
+radius = 267.152
+
+[node name="wand" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gma8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_euy3w")
+
+[node name="bolt_pivot" type="Marker2D" parent="."]
+
+[node name="Magicbolt" type="Sprite2D" parent="bolt_pivot"]
+position = Vector2(17, 0)
+rotation = 1.5708
+texture = ExtResource("2_idkaw")
+
+[node name="shooting_point" type="Marker2D" parent="bolt_pivot/Magicbolt"]
+unique_name_in_owner = true
+position = Vector2(0, -9)
+rotation = -1.5708
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

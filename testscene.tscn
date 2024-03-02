@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b55tt3ivrcafg"]
+
+[ext_resource type="PackedScene" uid="uid://bke23aljxr27" path="res://player.tscn" id="1_w3dfl"]
+[ext_resource type="PackedScene" uid="uid://28sqlj0dc81n" path="res://farmer.tscn" id="2_3bcfy"]
+
+[node name="testscene" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_w3dfl")]
+position = Vector2(579, 327)
+
+[node name="Farmer" parent="." instance=ExtResource("2_3bcfy")]
+position = Vector2(166, 487)
+
+[node name="Farmer2" parent="." instance=ExtResource("2_3bcfy")]
+position = Vector2(261, 222)
+
+[node name="Farmer3" parent="." instance=ExtResource("2_3bcfy")]
+position = Vector2(884, 236)

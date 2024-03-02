@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bke23aljxr27"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_hqkv1"]
+[ext_resource type="Texture2D" uid="uid://mvg3m7fvh73j" path="res://characters/Necromancer.png" id="1_ps3dy"]
+[ext_resource type="PackedScene" uid="uid://0emwua3vfrko" path="res://wand.tscn" id="2_u8s1d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2n1b"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5bxo6"]
+radius = 14.0357
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3we06"]
+bg_color = Color(0.901961, 0.0156863, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g82qx"]
+bg_color = Color(0.0840001, 0.72, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="player" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 5
+script = ExtResource("1_hqkv1")
+
+[node name="Necromancer" type="Sprite2D" parent="."]
+texture = ExtResource("1_ps3dy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g2n1b")
+
+[node name="wand" parent="." instance=ExtResource("2_u8s1d")]
+
+[node name="hurt_box" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+shape = SubResource("CircleShape2D_5bxo6")
+debug_color = Color(0.894118, 0.294118, 0.345098, 0.419608)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -17.0
+offset_top = -27.0
+offset_right = 18.0
+offset_bottom = -17.0
+theme_override_styles/background = SubResource("StyleBoxFlat_3we06")
+theme_override_styles/fill = SubResource("StyleBoxFlat_g82qx")
+value = 100.0
+show_percentage = false
+
+[node name="Camera2D" type="Camera2D" parent="."]

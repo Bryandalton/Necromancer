@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyd81uiwlo8cc"]
+
+[ext_resource type="Script" path="res://dead_farmer.gd" id="1_0bfqf"]
+[ext_resource type="Texture2D" uid="uid://by535ib1rdc2h" path="res://characters/Farmer_Dead.png" id="1_7mw8e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wvw30"]
+radius = 5.09902
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8g0bo"]
+radius = 3.0
+
+[node name="dead_farmer" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_0bfqf")
+
+[node name="FarmerDead" type="Sprite2D" parent="."]
+texture = ExtResource("1_7mw8e")
+
+[node name="reanimate_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="reanimate_box"]
+shape = SubResource("CircleShape2D_wvw30")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8g0bo")
+
+[connection signal="body_entered" from="reanimate_box" to="." method="_on_reanimate_box_body_entered"]
