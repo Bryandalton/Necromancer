@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmbtrkn7o1ouj"]
+[gd_scene load_steps=5 format=3 uid="uid://bmbtrkn7o1ouj"]
 
 [ext_resource type="Script" path="res://skeleton.gd" id="1_ejby2"]
 [ext_resource type="Texture2D" uid="uid://7cu1xi6e4fxb" path="res://characters/Skeleton.png" id="2_bnimp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x0w80"]
 radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4wf5c"]
+radius = 119.017
 
 [node name="skeleton" type="CharacterBody2D"]
 collision_layer = 2
@@ -16,3 +19,12 @@ texture = ExtResource("2_bnimp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x0w80")
+
+[node name="agro_area" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agro_area"]
+shape = SubResource("CircleShape2D_4wf5c")
+debug_color = Color(0.854902, 0.333333, 0.423529, 0.419608)

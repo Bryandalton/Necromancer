@@ -12,6 +12,7 @@ collision_mask = 2
 script = ExtResource("1_gma8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_euy3w")
 
 [node name="bolt_pivot" type="Marker2D" parent="."]
