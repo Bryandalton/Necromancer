@@ -6,7 +6,6 @@ func _ready():
 	spawn_mob()
 	spawn_mob()
 	spawn_mob()
-	
 
 func spawn_mob():
 	var new_mob = preload("res://farmer.tscn").instantiate()

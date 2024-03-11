@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://28sqlj0dc81n"]
+[gd_scene load_steps=5 format=3 uid="uid://28sqlj0dc81n"]
 
 [ext_resource type="Script" path="res://farmer.gd" id="1_2nndv"]
 [ext_resource type="Texture2D" uid="uid://c3m6vkaap7s1q" path="res://characters/Farmer.png" id="1_pj6qw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2jvb4"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_04ory"]
+radius = 11.0454
+
 [node name="Farmer" type="CharacterBody2D"]
-collision_layer = 10
-collision_mask = 3
+collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_2nndv")
 
 [node name="Farmer" type="Sprite2D" parent="."]
@@ -15,3 +18,10 @@ texture = ExtResource("1_pj6qw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2jvb4")
+
+[node name="hurt_box" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+shape = SubResource("CircleShape2D_04ory")
+debug_color = Color(0.921569, 0.25098, 0.333333, 0.419608)

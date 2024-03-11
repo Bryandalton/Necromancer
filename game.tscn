@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game.gd" id="1_0hsud"]
 [ext_resource type="PackedScene" uid="uid://bke23aljxr27" path="res://player.tscn" id="1_th6we"]
-[ext_resource type="PackedScene" uid="uid://lbc0h73faujc" path="res://house.tscn" id="2_fnuep"]
+[ext_resource type="Texture2D" uid="uid://qt1ymon5uyt0" path="res://assets/pixel graveyard.png" id="2_kaik5"]
 
 [sub_resource type="Curve2D" id="Curve2D_iffdq"]
 _data = {
@@ -13,13 +13,6 @@ point_count = 5
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_0hsud")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1154.0
-offset_bottom = 649.0
 
 [node name="Player" parent="." instance=ExtResource("1_th6we")]
 position = Vector2(534, 272)
@@ -32,24 +25,6 @@ curve = SubResource("Curve2D_iffdq")
 unique_name_in_owner = true
 position = Vector2(-142, -138)
 rotation = -0.0013947
-
-[node name="House" parent="." instance=ExtResource("2_fnuep")]
-position = Vector2(139, 128)
-
-[node name="House2" parent="." instance=ExtResource("2_fnuep")]
-position = Vector2(228, 389)
-
-[node name="House3" parent="." instance=ExtResource("2_fnuep")]
-position = Vector2(553, 460)
-
-[node name="House4" parent="." instance=ExtResource("2_fnuep")]
-position = Vector2(858, 438)
-
-[node name="House5" parent="." instance=ExtResource("2_fnuep")]
-position = Vector2(833, 217)
-
-[node name="House6" parent="." instance=ExtResource("2_fnuep")]
-position = Vector2(543, 201)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.55
@@ -82,6 +57,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 37
 text = "GAME OVER"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 3
+texture_repeat = 3
+offset_left = 138.0
+offset_top = -71.0
+offset_right = 856.0
+offset_bottom = 647.0
+texture = ExtResource("2_kaik5")
+expand_mode = 1
+stretch_mode = 4
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
