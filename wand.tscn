@@ -8,7 +8,7 @@ radius = 267.152
 
 [node name="wand" type="Area2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 32
 script = ExtResource("1_gma8s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

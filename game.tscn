@@ -15,7 +15,7 @@ y_sort_enabled = true
 script = ExtResource("1_0hsud")
 
 [node name="Player" parent="." instance=ExtResource("1_th6we")]
-position = Vector2(534, 272)
+position = Vector2(291, 308)
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-534, -272)
@@ -61,10 +61,10 @@ text = "GAME OVER"
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 3
 texture_repeat = 3
-offset_left = 138.0
-offset_top = -71.0
-offset_right = 856.0
-offset_bottom = 647.0
+offset_left = -108.0
+offset_top = -44.0
+offset_right = 610.0
+offset_bottom = 674.0
 texture = ExtResource("2_kaik5")
 expand_mode = 1
 stretch_mode = 4
